@@ -63,7 +63,7 @@ namespace Falcor
         {
             mPressedKeys.insert(keyEvent.key);
         }
-        else
+        else if (keyEvent.type == KeyboardEvent::Type::KeyReleased)
         {
             mPressedKeys.erase(keyEvent.key);
         }
@@ -357,29 +357,20 @@ namespace Falcor
 
     std::string Sample::captureScreen(const std::string explicitFilename, const std::string explicitOutputDirectory)
     {
-           
-        std::string filename = getExecutableName();
+        mCaptureScreen = false;
 
-        if (explicitFilename != "")
-            filename = explicitFilename;
-
-        std::string outputDirectory = getExecutableDirectory();
-
-        if (explicitOutputDirectory != "") 
-            outputDirectory = explicitOutputDirectory;
- 
+        std::string filename = explicitFilename != "" ? explicitFilename : getExecutableName();
+        std::string outputDirectory = explicitOutputDirectory != "" ? explicitOutputDirectory : getExecutableDirectory();
 
         std::string pngFile;
         if (findAvailableFilename(filename, outputDirectory, "png", pngFile))
         {
             Texture::SharedPtr pTexture = gpDevice->getSwapChainFbo()->getColorTexture(0);
             pTexture->captureToFile(0, 0, pngFile);
-            mCaptureScreen = false;
         }
         else
         {
             logError("Could not find available filename when capturing screen");
-            mCaptureScreen = false;
             return "";
         }
 

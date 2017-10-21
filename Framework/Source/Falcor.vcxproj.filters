@@ -208,9 +208,6 @@
     <ClCompile Include="API\D3D\D3DState.cpp">
       <Filter>API\D3D</Filter>
     </ClCompile>
-    <ClCompile Include="API\D3D\D3DWindow.cpp">
-      <Filter>API\D3D</Filter>
-    </ClCompile>
     <ClCompile Include="API\D3D\D3D11\D3D11BlendState.cpp">
       <Filter>API\D3D\D3D11</Filter>
     </ClCompile>
@@ -534,6 +531,9 @@
     <ClCompile Include="MultiRendererSample.cpp" />
     <ClCompile Include="Utils\PythonEmbedding.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="API\Window.cpp">
+      <Filter>API</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1646,13 +1646,15 @@
     <ClInclude Include="Utils\ThreadPool.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="API\D3D\D3D12\D3D12ApiData.h" />
     <ClInclude Include="Utils\Renderer\Renderer.h">
       <Filter>Utils\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="MultiRendererSample.h" />
     <ClInclude Include="Utils\PythonEmbedding.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="API\D3D\D3D12\D3D12ApiData.h">
+      <Filter>API\D3D\D3D12</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
